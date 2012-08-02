@@ -67,6 +67,7 @@ typedef struct twilio_request_t {
 void escape(char *, char **); 
 
 twilio_status init_twilio_api(char*, char*); 
+void build_uri(char *, char**);
 void post_sms(char*,char*,char*); 
 
 #endif 

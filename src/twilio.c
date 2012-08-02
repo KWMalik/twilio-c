@@ -47,6 +47,18 @@ CURLcode res;
 char *asid; //Acount SID
 char *atoken; // Account Token 
 
+/* Buils the entire resource uri for the twilio api function */
+void
+build_uri(char *resource, char **uri) {
+    char *base = malloc(strlen(BASEURL)+
+            strlen(asid) + 
+            strlen(atoken) + 
+            strlen(resource)); 
+    sprintf(base, BASEURL, asid, atoken, resource); 
+    *uri = malloc(strlen(base)+strlen(asid)); 
+    sprintf(*uri, base, asid); 
+}
+
 /* Should be the first function you call when you 
  * use this library. Initializes an instance of the 
  * variables required to communicate with the 

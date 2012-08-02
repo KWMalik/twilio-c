@@ -41,24 +41,13 @@
 #include <curl/curl.h> 
 #include <twilio.h> 
 
-/* Buils the entire resource uri for the twilio api function */
-char*
-build_uri(char *resource) {
-    char *base = malloc(strlen(BASEURL)+
-            strlen(asid) + 
-            strlen(atoken) + 
-            strlen(resource)); 
-    sprintf(base, BASEURL, asid, atoken, resource); 
-    char *uri = malloc(strlen(base)+strlen(asid)); 
-    sprintf(uri, base, asid); 
-    /* Make sure you free the memory later after using this. */
-    return uri;
-}
 
+ 
 /* POST message to send a sms message to the desired recpient */
 void 
 post_sms(char *snd, char *rec, char *msg) {
-    char *uri = build_uri(POST_SMS); 
+    char *uri; 
+	build_uri(POST_SMS, &uri); 
     char *bodybase = "From=%s&To=%s&Body=%s"; 
     char *buf = malloc(strlen(bodybase)+
             strlen(snd) + 
