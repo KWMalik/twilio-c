@@ -1,7 +1,8 @@
 CC=gcc 
-CFLAGS= -Wall -I/usr/include -I./include -L/usr/lib -L$(BIN) -lcurl
+CFLAGS= -Wall -I/usr/include -I./include -L/usr/lib -ljansson $(CURL) -L$(BIN)
 LD=ld 
 BIN=bin
+CURL=`curl-config --libs`
 VERSION=1.0.1
 
 UTIL=$(wildcard ./util/*.c)

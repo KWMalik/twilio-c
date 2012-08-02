@@ -32,7 +32,7 @@
  *
  *         Author:  William Dignazio (slackwill), slackwill@csh.rit.edu
  *   Organization:  
- *
+ *"
  * ========================================================================
  */
 #include <stdlib.h>

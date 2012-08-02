@@ -1,5 +1,4 @@
-/**
- * Copyright 2012, William Dignazio
+/** * Copyright 2012, William Dignazio
  *
  * This file is part of the twilio-c library.
  *
@@ -45,7 +44,7 @@
  
 /* POST message to send a sms message to the desired recpient */
 void 
-post_sms(char *snd, char *rec, char *msg) {
+post_sms(char *snd, char *rec, char *msg, twilio_rest_callback *callback) {
     char *uri; 
 	build_uri(POST_SMS, &uri); 
     char *bodybase = "From=%s&To=%s&Body=%s"; 

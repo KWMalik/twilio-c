@@ -20,8 +20,10 @@
 #ifndef TWILIO_GAURD_H
 #define TWILIO_GARUD_H
 
-#include <encode.h>
 #include <curl/curl.h>
+#include <jansson.h> 
+#include "rest.h"
+#include "encode.h"
 
 #define VERSION "2010-04-01"; 
 
@@ -45,22 +47,6 @@ extern char* atoken; //Acount token
 
 typedef int twilio_status; 
 
-typedef struct twilio_sms_return_t { 
-    char *asid; 
-    char *version; 
-    char *body; 
-    char *created; 
-    char *sent; 
-    char *updated; 
-    char *direction; 
-    char *from; 
-    char *price; 
-    char *sid;
-    char *status; 
-    char *to; 
-    char *uri; 
-} twilio_post_t; 
-
 typedef struct twilio_request_t { 
 } twilio_request_t;  
 
@@ -68,6 +54,5 @@ void escape(char *, char **);
 
 twilio_status init_twilio_api(char*, char*); 
 void build_uri(char *, char**);
-void post_sms(char*,char*,char*); 
 
 #endif 
